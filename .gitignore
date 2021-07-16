@@ -1,0 +1,11 @@
+*/venv/*
+venv/
+.idea/*
+.idea/
+report/*
+report/
+lib/*
+lib/
+config/db_test.csv
+config/key_test.csv
+config/template_test.yaml
