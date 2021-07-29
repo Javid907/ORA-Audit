@@ -1,0 +1,5 @@
+pyyaml==5.3.1
+cx_Oracle
+sqlalchemy
+pandas~=1.2.5
+setuptools~=49.2.1

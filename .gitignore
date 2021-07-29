@@ -1,0 +1,15 @@
+venv/*
+venv/
+.idea/*
+.idea/
+report/*
+report/
+log/*
+log/
+lib/*
+lib/
+module/__pycache__
+config/db_test.csv
+config/key_test.csv
+config/template_test.yaml
+config/exclude_key_test.csv
