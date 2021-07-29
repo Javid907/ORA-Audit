@@ -127,7 +127,8 @@ def get_sensitive_table(db_name, db_ip, db_port, username, password, type):
                             add_to_report(db_name, o_name, t_name, c_name)
         except Exception as my_error:
             with open(error_log, 'a') as outF:
-                outF.write("Error while getting table list" + ", " + "DB_NAME: " + db_name + ", " + str(my_error) + "\n")
+                outF.write("Error while getting table list" + ", " + "DB_NAME: " + db_name + ", " + \
+                           str(my_error) + "\n")
     except Exception as my_error:
         with open(error_log, 'a') as outF:
             outF.write("Cannot connect to" + ", " + "DB_NAME: " + db_name + ", " + str(my_error) + "\n")
