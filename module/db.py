@@ -88,9 +88,6 @@ def get_sensitive_table(db_name, db_ip, db_port, username, password, type):
         con = cx_Oracle.connect(user=username, password=password, dsn=dsn)
         cursor_table = con.cursor()
         try:
-            csv_file = open(report_file, "a")
-            csv_file.write("DB_NAME,OWNER,TABLE_NAME,FIELD_NAME\n")
-            csv_file.close()
             cursor_table.execute("SELECT a.OWNER,a.table_name,a.column_name FROM all_tab_columns \
                                 a,all_all_tables b where a.OWNER=b.owner and \
                                 a.TABLE_NAME=b.table_name and b.num_rows!=0")
