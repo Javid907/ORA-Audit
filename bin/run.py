@@ -64,5 +64,10 @@ def ora_audit():
                 my_log = line
                 syslog(my_log)
 
+    try:
+        os.remove(report_file)
+    except:
+        pass
+
 print("ORA-Audit is Running")
 ora_audit()

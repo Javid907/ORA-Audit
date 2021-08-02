@@ -7,16 +7,9 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 ora_audit_path = "/opt/ora-audit"
-ora_audit_config_path = ora_audit_path + "/config"
 ora_audit_log_path = ora_audit_path + "/log"
-ora_audit_lib_path = ora_audit_path + "/lib"
+ora_audit_report_path = ora_audit_path + "/report"
 
-try:
-    os.mkdir(ora_audit_path)
-except OSError:
-    print ("Creation of the directory %s failed" % ora_audit_path)
-else:
-    print ("Successfully created the directory %s " % ora_audit_path)
 
 try:
     os.mkdir(ora_audit_log_path)
@@ -26,14 +19,11 @@ else:
     print ("Successfully created the directory %s " % ora_audit_log_path)
 
 try:
-    os.mkdir(ora_audit_lib_path)
+    os.mkdir(ora_audit_report_path)
 except OSError:
-    print ("Creation of the directory %s failed" % ora_audit_lib_path)
+    print ("Creation of the directory %s failed" % ora_audit_report_path)
 else:
-    print ("Successfully created the directory %s " % ora_audit_lib_path)
-
-shutil.move("config", ora_audit_path)
-
+    print ("Successfully created the directory %s " % ora_audit_report_path)
 
 setuptools.setup(
     name="ORA-Audit",
@@ -47,8 +37,8 @@ setuptools.setup(
     packages=['module'],
     scripts=['bin/run.py'],
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
         "Operating System :: *NIX OS's",
     ],
-    python_requires='>=3',
+    python_requires='>=3.6',
 )

@@ -1,6 +1,6 @@
 #Auth Data
-ora_user: your_username
-ora_user_pass: your_password
+ora_user: username
+ora_user_pass: password
 
 #Config
 ora_db_list_file: "/opt/ora-audit/config/db.csv"
@@ -10,9 +10,14 @@ exclude_key_list: "/opt/ora-audit/config/exclude_key.csv"
 
 #Report
 report_file: "/opt/ora-audit/report/report.csv"
+function_folder: "/opt/ora-audit/report/"
 
 #Log
 error_log: "/opt/ora-audit/log/error.log"
 
 #Lib
-oracle_lib_dir: "/opt/ora-audit/lib/windows/instantclient_19_11"
+oracle_lib_dir: "/opt/ora-audit/lib/linux/instantclient_19_12"
+
+#Qradar
+log_server_ip_address: ip_address
+log_server_port: 514
