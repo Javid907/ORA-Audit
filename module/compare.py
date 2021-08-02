@@ -43,4 +43,7 @@ def diff_file(old_report, new_report, difference_file):
     with open(difference_file, 'w') as outFile:
         for line in file_two:
             if line not in file_one:
-                outFile.write(line)
+                outFile.write(line.rstrip() + ",TABLE_ADDED\n")
+        for line in file_one:
+            if line not in file_two:
+                outFile.write(line.rstrip() + ",TABLE_REMOVED\n")
