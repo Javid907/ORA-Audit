@@ -14,9 +14,7 @@ report_file = config.get_config("report_file")
 oracle_lib_dir = config.get_config("oracle_lib_dir")
 cx_Oracle.init_oracle_client(lib_dir=oracle_lib_dir)
 ora_list_file_count = db.get_db_count(ora_db_list_file)
-time_str = time.strftime("%Y%m%d-%H%M%S")
 function_folder = config.get_config("function_folder")
-difference_file = function_folder + "difference_" + time_str + ".csv"
 
 log_server_ip_address = config.get_config("log_server_ip_address")
 log_server_port = config.get_config("log_server_port")
@@ -38,6 +36,8 @@ def ora_audit():
         get_db_connection_type = db.get_db_connection_type(i, ora_db_list_file)
         db.get_sensitive_table(ora_db_name, ora_db_ip, ora_db_port, ora_user, ora_user_pass, get_db_connection_type)
 
+    time_str = time.strftime("%Y%m%d-%H%M%S")
+    difference_file = function_folder + "difference_" + time_str + ".csv"
     new_report_file = report_file.split('.csv')[0] + "_" + time_str + ".csv"
     try:
         try:
@@ -57,12 +57,15 @@ def ora_audit():
     except:
         pass
 
-    if os.stat(difference_file).st_size != 0:
-        with open(difference_file, "r") as f:
-            lines = f.readlines()
-            for line in lines:
-                my_log = line
-                syslog(my_log)
+    try:
+        if os.stat(difference_file).st_size != 0:
+            with open(difference_file, "r") as f:
+                lines = f.readlines()
+                for line in lines:
+                    my_log = line
+                    syslog(my_log)
+    except:
+        print("Difference file could not find")
 
     try:
         os.remove(report_file)
