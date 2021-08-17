@@ -11,8 +11,8 @@ Prepare your host
     cd ora-audit/
 
 You need to change path for your config/template.yaml
-    
-    vi module/config.py 
+
+    vi module/config.py
 
 
 You need to add your data in following files
@@ -25,13 +25,13 @@ You need to add your data in following files
 
 Then run these commands:
 
-      sh -c "echo  /opt/ora-audit/lib/linux/instantclient_19_12 > /etc/ld.so.conf.d/oracle-instantclient.conf"
-      ldconfig
-      export LD_LIBRARY_PATH=/opt/ora-audit/lib/linux/instantclient_19_12:$LD_LIBRARY_PATH
+    sh -c "echo  /opt/ora-audit/lib/linux/instantclient_19_12 > /etc/ld.so.conf.d/oracle-instantclient.conf"
+    ldconfig
+    export LD_LIBRARY_PATH=/opt/ora-audit/lib/linux/instantclient_19_12:$LD_LIBRARY_PATH
 
-      pip3.6 install -r ./requirements.txt
-      pip3.6 install --user -U ./
-      python3.6 ~/.local/bin/run.py
+    pip3.6 install -r ./requirements.txt
+    pip3.6 install --user -U ./
+    python3.6 ~/.local/bin/run.py
 
 
 
